@@ -52,9 +52,25 @@ def show_madlib_form():
     else:
         return render_template("game.html")
 
+@app.route('/madlib')
+def show_madlib():
+    """ Displays madlib"""
+
+    color = request.args.get("color")
+    noun = request.args.get("noun")
+    person = request.args.get("person")
+    adjective = request.args.get("adjective")
+
+    mad_lib = """ There was once a %s %s, sitting in a Hackbright 
+            Lab. When the %s went to pick it up, it burst into flames
+            in a totally %s way!!""" % (color, noun, person, adjective)
+
+    return mad_lib 
 
 
-    return answer 
+
+
+
 
 
 if __name__ == '__main__':
